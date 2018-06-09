@@ -1,0 +1,23 @@
+{
+  "name": "mobile-graphics",
+  "version": "1.0.2",
+  "description": "A graphics plug-in based on canvas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "keywords": [
+    "graphics",
+    "signature",
+    "canvas"
+  ],
+  "author": "fisher-zh",
+  "license": "ISC",
+  "devDependencies": {
+    "lodash": "^4.17.10",
+    "webpack": "^4.11.0",
+    "webpack-cli": "^3.0.2"
+  },
+  "dependencies": {}
+}
