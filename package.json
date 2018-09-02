@@ -1,6 +1,6 @@
 {
   "name": "mobile-graphics",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "A graphics plug-in based on canvas",
   "main": "index.js",
   "scripts": {
@@ -13,6 +13,11 @@
     "canvas"
   ],
   "author": "fisher-zh",
+  "repository" :
+  {
+    "type" : "git",
+    "url" : "https://github.com/fisher-zh/graphics"
+  },
   "license": "ISC",
   "devDependencies": {
     "lodash": "^4.17.10",

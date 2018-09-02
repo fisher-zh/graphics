@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../dist/graphics.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div id="canvas" style="width:200px; height:200px;border: red"></div>
+    </div>
+    <script>
+        var graphics = new Graphics({
+            el: document.getElementById('canvas'), // 挂载节点
+            linewidth: 2,                          // 线条宽度
+            color: '#000',                         // 线条颜色
+            background: '#fff'                     // 背景颜色
+        })
+    </script>
+</body>
+</html>

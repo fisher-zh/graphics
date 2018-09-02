@@ -34,26 +34,53 @@ function Graphics(obj) {
 
     var recordList = []; // 记录绘制记录
     var previousPoint = []; // 记录上一步绘制的点集合
-
+    
+    // 该变量保存是否鼠标按下
+    var isMouseDown = false;
     //开始绘制
-    this.canvas.addEventListener('touchstart', function(e) {
+    var touchstart = function (e) {
         previousPoint = [];
         previousPoint.push(e);
         this.cxt.beginPath();
         this.cxt.moveTo(e.changedTouches[0].pageX - left, e.changedTouches[0].pageY - top);
-    }.bind(this), false);
+    }
+    var mousedown = function (e) {
+        isMouseDown = true
+        previousPoint = [];
+        previousPoint.push(e);
+        this.cxt.beginPath();
+        this.cxt.moveTo(e.pageX - left, e.pageY - top);
+    }
+    this.canvas.addEventListener('touchstart', touchstart.bind(this), false);
+    this.canvas.addEventListener('mousedown', mousedown.bind(this), false);
+    
     //绘制中
-    this.canvas.addEventListener('touchmove', function(e) {
-        console.log(e)
+    var touchmove = function (e) {
         previousPoint.push(e);
         this.cxt.lineTo(e.changedTouches[0].pageX - left, e.changedTouches[0].pageY - top);
         this.cxt.stroke();
-    }.bind(this), false);
+    }
+    var mousemove = function (e) {
+        if (!isMouseDown) {
+            return
+        }
+        previousPoint.push(e);
+        this.cxt.lineTo(e.pageX - left, e.pageY - top);
+        this.cxt.stroke();
+    }
+    this.canvas.addEventListener('touchmove', touchmove.bind(this), false);
+    this.canvas.addEventListener('mousemove', mousemove.bind(this), false);
+
     //结束绘制
-    this.canvas.addEventListener('touchend', function() {
+    var end = function () {
+        isMouseDown = false;
         this.cxt.closePath();
         recordList.push(previousPoint)
-    }.bind(this), false);
+    }
+    this.canvas.addEventListener('touchend', end.bind(this), false);
+    this.canvas.addEventListener('mouseup', end.bind(this), false);
+    this.canvas.addEventListener('mouseout', end.bind(this), false);
+    
     //清除画布
     this.clear = function () {
         this.cxt.clearRect(0, 0, this.canvas.width, this.canvas.height);
