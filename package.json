@@ -13,14 +13,12 @@
     "canvas"
   ],
   "author": "fisher-zh",
-  "repository" :
-  {
-    "type" : "git",
-    "url" : "https://github.com/fisher-zh/graphics"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fisher-zh/graphics"
   },
   "license": "ISC",
   "devDependencies": {
-    "lodash": "^4.17.10",
     "webpack": "^4.11.0",
     "webpack-cli": "^3.0.2"
   },
